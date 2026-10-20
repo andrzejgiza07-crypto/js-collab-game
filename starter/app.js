@@ -46,21 +46,28 @@ function nazwaPokoju(numer) {
     case 4:
       return 'Wyjście';
     default:
-      return "Nazwa do uzupelnienia";
+      return "Nieznane pomieszczenie";
   }
 
 }
+
 function pomoc() {
   console.log('Dostepne: start(), pomoc(), status(), mapa(), rozejrzyj(), idz("prawo"), akcja("karta")');
   // TODO A5: dopisz pozostale kierunki i akcje oraz zasade kosztu.
 }
 function status() {
-  // TODO A3: wypisz pokoj, energie, przedmioty, zasilanie i stan gry.
-  console.log("Status do uzupelnienia");
+  console.log("Pokoj: ",nazwaPokoju(pokoj));
+  console.log("Energia: ",energia);
+  console.log("Karta: "+(karta ? "tak" : "nie"));
+  console.log("bezpiecznik"+bezpiecznik);
 }
 function mapa() {
-  // TODO A2: petla for od 1 do 4; nazwa i znacznik aktualnego pokoju.
-  console.log("Mapa do uzupelnienia");
+  for (let numer = 1; numer <= 4; numer = numer + 1) {
+  console.log(numer,nazwaPokoju(numer));
+  if(numer==pokoj){
+    console.log("jestes tutaj")
+  }
+}
 }
 function rozejrzyj() {
   // TODO A4: switch(pokoj); opis zgodny ze stanem przedmiotow.
