@@ -59,8 +59,10 @@ function status() {
   console.log("Pokoj: ",nazwaPokoju(pokoj));
   console.log("Energia: ",energia);
   console.log("Karta: "+(karta ? "tak" : "nie"));
-  console.log("bezpiecznik"+bezpiecznik);
-  console.log("chuj ci w dupe")
+  console.log("bezpiecznik: "+(bezpiecznik ? "tak" : "nie"));
+  console.log("Zasilanie: "+(zasilanie ? "tak" : "nie"));
+  console.log("Stan gry: "+(wygrana ? "wygrales" : "podwujny chuj w dupe"));
+  console.log("chuj ci w dupe");
 }
 function mapa() {
   for (let numer = 1; numer <= 4; numer = numer + 1) {
@@ -82,7 +84,7 @@ function idz(kierunek) {
     return;
   }
   else
-    {
+    
       switch(kierunek)
       {
         case "prawo":
@@ -111,7 +113,7 @@ function idz(kierunek) {
   // TODO B4: zapisz poprawny pokoj, rozejrzyj(), zakonczTure().
   console.log("Ruch do uzupelnienia");
 }
-
+}
 // SEKCJA C — PRZEDMIOTY I WYGRANA
 function akcja(co) {
   // TODO C1: zablokuj akcje po koncu gry.
