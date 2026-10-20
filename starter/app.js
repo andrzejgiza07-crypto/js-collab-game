@@ -60,6 +60,7 @@ function status() {
   console.log("Energia: ",energia);
   console.log("Karta: "+(karta ? "tak" : "nie"));
   console.log("bezpiecznik"+bezpiecznik);
+  console.log("chuj ci w dupe")
 }
 function mapa() {
   for (let numer = 1; numer <= 4; numer = numer + 1) {
