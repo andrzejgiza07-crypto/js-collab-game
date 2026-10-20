@@ -69,9 +69,37 @@ function rozejrzyj() {
 
 // SEKCJA B — RUCH
 function idz(kierunek) {
-  // TODO B1: zablokuj ruch po koncu gry.
-  // TODO B2: switch kierunku; oblicz kandydat na nowy pokoj.
-  // TODO B3: odrzuc pokoj poza 1..4 i nieznany kierunek bez kosztu.
+  if (koniec) {
+    console.log("Gra skonczona. Wpisz start() aby zagrac ponownie.");
+    return;
+  }
+  else
+    {
+      switch(kierunek)
+      {
+        case "prawo":
+          if(pokoj < 4) 
+          {
+            pokoj++;
+          }
+          else 
+          {
+            console.log("Nie można iść w prawo. Jesteś w ostatnim pokoju.");
+          }
+          break;
+        case "lewo":
+            if(pokoj > 1) 
+            {
+              pokoj--;
+            }
+            else 
+            {
+              console.log("Nie można iść w lewo. Jesteś w pierwszym pokoju.");
+            }
+            break;
+        default:
+            console.log("Nieznany kierunek. Wpisz 'prawo' lub 'lewo'.");
+        
   // TODO B4: zapisz poprawny pokoj, rozejrzyj(), zakonczTure().
   console.log("Ruch do uzupelnienia");
 }
@@ -88,3 +116,4 @@ function akcja(co) {
 }
 
 start();
+{}
