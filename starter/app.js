@@ -82,7 +82,7 @@ function idz(kierunek) {
     return;
   }
   else
-    {
+    
       switch(kierunek)
       {
         case "prawo":
@@ -115,12 +115,74 @@ function idz(kierunek) {
 // SEKCJA C — PRZEDMIOTY I WYGRANA
 function akcja(co) {
   // TODO C1: zablokuj akcje po koncu gry.
+
+  // TODO C1: zablokuj akcje po koncu gry.
+  if (koniec) {
+    console.log("Gra jest już zakończona.");
+    return;
+  }
+  // TODO C2: switch: karta / bezpiecznik / napraw / wyjdz.
+  switch (co) {
+    case "karta":
+      if (pokoj !== 1 || karta) {
+        console.log("Tutaj nie ma karty do zabrania.");
+        return;
+      }
+
+      karta = true;
+      console.log("Zabierasz karte.");
+      break;
+
+    case "bezpiecznik":
+      if (pokoj !== 2 || bezpiecznik || zasilanie) {
+        console.log("Nie możesz zabrać bezpiecznika.");
+        return;
+      }
+
+      bezpiecznik = true;
+      console.log("Zabierasz bezpiecznik.");
+      break;
+
+    case "napraw":
+      if (pokoj !== 3 || !bezpiecznik || zasilanie) {
+        console.log("Nie możesz naprawić zasilania.");
+        return;
+      }
+
+      bezpiecznik = false;
+      zasilanie = true;
+      console.log("Naprawiasz zasilanie.");
+      break;
+
+    case "wyjdz":
+      if (pokoj !== 4 || !karta || !zasilanie) {
+        console.log("Nie możesz otworzyć drzwi.");
+        return;
+      }
+
+      wygrana = true;
+      koniec = true;
+      console.log("Otwierasz drzwi i wygrywasz!");
+      break;
+
+    default:
+      console.log("Nieznana akcja.");
+      return;
+  }
+
+  // TODO C2: przed zmiana sprawdz pokoj i wymagany stan.
+  // TODO C3: przy odrzuceniu return; przy sukcesie break.
+  // TODO C3: po switch jedno zakonczTure().
+  // TODO C4: wygrana i koniec ustawione przed rozliczeniem tury!
+  
   // TODO C2: switch: karta / bezpiecznik / napraw / wyjdz.
   // TODO C2: przed zmiana sprawdz pokoj i wymagany stan.
   // TODO C3: przy odrzuceniu return; przy sukcesie break.
   // TODO C3: po switch jedno zakonczTure().
   // TODO C4: wygrana i koniec ustawione przed rozliczeniem tury!
   console.log("Akcje do uzupelnienia");
+}
+zakonczTure();
 }
 
 start();
