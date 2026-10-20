@@ -52,8 +52,34 @@ function nazwaPokoju(numer) {
 }
 
 function pomoc() {
-  console.log('Dostepne: start(), pomoc(), status(), mapa(), rozejrzyj(), idz("prawo"), akcja("karta")');
-  // TODO A5: dopisz pozostale kierunki i akcje oraz zasade kosztu.
+
+function pomoc() {
+  console.log("=== POMOC: UCIECZKA Z SERWEROWNI ===");
+  console.log("KOMENDY OGÓLNE:");
+  console.log("start() - rozpocznij grę od nowa");
+  console.log("pomoc() - wyświetl instrukcję");
+  console.log("status() - sprawdź stan gry i energię");
+  console.log("mapa() - wyświetl mapę pomieszczeń");
+  console.log("rozejrzyj() - sprawdź otoczenie");
+
+  console.log("RUCH:");
+  console.log('idz("prawo") - przejdź do następnego pokoju');
+  console.log('idz("lewo") - wróć do poprzedniego pokoju');
+
+  console.log("AKCJE:");
+  console.log('akcja("karta") - zabierz kartę w recepcji');
+  console.log('akcja("bezpiecznik") - zabierz bezpiecznik w magazynie');
+  console.log('akcja("napraw") - napraw zasilanie w serwerowni');
+  console.log('akcja("wyjdz") - otwórz drzwi w pokoju wyjściowym');
+
+  console.log("ZASADY GRY:");
+  console.log("- Masz 10 jednostek energii na początku gry.");
+  console.log("- Każdy poprawny ruch lub udana akcja kosztuje 1 energię.");
+  console.log("- Niepoprawne komendy i niemożliwe akcje nie powinny kosztować energii.");
+  console.log("- Aby wygrać, zdobądź kartę, zabierz bezpiecznik, napraw zasilanie i otwórz drzwi.");
+  console.log("- Po przegranej wpisz start(), aby rozpocząć od nowa.");
+}
+ 
 }
 function status() {
   console.log("Pokoj: ",nazwaPokoju(pokoj));
@@ -74,7 +100,21 @@ function mapa() {
 }
 function rozejrzyj() {
   // TODO A4: switch(pokoj); opis zgodny ze stanem przedmiotow.
-  console.log("Opis pokoju do uzupelnienia");
+  switch (pokoj){
+    case 1:
+      if(karta==false)
+      {
+        return "lezy karta";
+      }
+      else return "karta wzieta";
+      case 2:
+        if(bezpiecznik==false && zasilanie==false) return "nie masz bezpiecznika";
+        else return "masz bezpiecznik";
+      case 3:
+        if(zasilanie==true) return "dziala zasilania";
+      default:
+          console.log("Opis pokoju do uzupelnienia");;     
+  }
 }
 
 // SEKCJA B — RUCH
@@ -185,7 +225,7 @@ function akcja(co) {
   console.log("Akcje do uzupelnienia");
 }
 zakonczTure();
-}
+
 
 start();
 {}
