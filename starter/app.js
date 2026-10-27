@@ -173,7 +173,7 @@ function akcja(co) {
         console.log("Tutaj nie ma karty do zabrania.");
         return;
       }
-
+      let kss="sss"
       karta = true;
       console.log("Zabierasz karte.");
       break;
